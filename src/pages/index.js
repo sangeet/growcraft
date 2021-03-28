@@ -63,7 +63,7 @@ const BlocksSection = () => {
     },
     {
       icon: "fas fa-sync",
-      text: "COntinued support",
+      text: "Continued support",
     },
   ]
   return (
