@@ -24,9 +24,9 @@ const MainSection = () => {
         alt=""
         class="absolute inset-0 h-full w-full object-cover z-0"
       />
-      <div class="h-full absolute right-0 bottom-0 z-10 flex flex-col justify-end">
-        <div class="absolute top-0 bottom-0 right-0 w-full h-full bg-green-600 opacity-50"></div>
-        <img src={HeaderLogo} class="m-32 z-10" />
+      <div class="h-full absolute right-0 bottom-0 z-10 flex flex-col justify-center sm:justify-end">
+        <div class="absolute top-0 bottom-0 right-0 w-full h-full bg-green-700 opacity-50"></div>
+        <img src={HeaderLogo} class="m-10 sm:m-32 z-10 object-contain" />
       </div>
     </section>
   )
@@ -34,9 +34,7 @@ const MainSection = () => {
 
 const BlocksSection = () => {
   const firstBlock = [
-    { icon: "fas fa-bug",
-      text: "Pesticide free",
-    },
+    { icon: "fas fa-bug", text: "Pesticide free" },
     {
       icon: "fas fa-map-marker-alt",
       text: "Cultivated locally",
@@ -69,9 +67,9 @@ const BlocksSection = () => {
     },
   ]
   return (
-    <section class="py-32 bg-green-600">
-      <div class="container grid grid-cols-2 mx-auto bg-white">
-        <div class="w-full grid justify-center bg-green-300 grid-cols-2 py-20">
+    <section class="py-0 sm:py-5 lg:py-32 bg-green-600">
+      <div class="container grid grid-cols-1 lg:grid-cols-2 mx-auto bg-white">
+        <div class="w-full grid justify-center bg-green-300 grid-cols-1 sm:grid-cols-2 py-20">
           {firstBlock.map(item => (
             <div class="flex flex-col justify-center items-center p-10 text-center">
               <i class={`${item.icon} text-5xl mb-5 text-green-600`}></i>
@@ -81,51 +79,43 @@ const BlocksSection = () => {
         </div>
         <div class="w-full flex flex-col py-20 px-10">
           <div class="flex flex-col text-green-600">
-            <h2 class="text-5xl font-serif">Green Box</h2>
-            <span class="text-2xl italic mt-3 font-serif">
+            <h2 class="text-4xl sm:text-5xl font-serif">Green Box</h2>
+            <span class="text-xl sm:text-2xl italic mt-3 font-serif">
               Coming soon to Bengaluru!
             </span>
           </div>
-          <div class="flex flex-col text-2xl">
-            <p class="py-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero illo
-              aperiam sed aut fugiat, commodi esse. Consectetur reprehenderit
-              facere necessitatibus!
+          <div class="flex flex-col text-lg sm:text-xl">
+            <p class="pt-5">
+              Green Box is an assortment of leafy greens and microgreens grown
+              hydroponically, in a hygienic and pesticide-free environment.
             </p>
-            <p class="py-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero illo
-              aperiam sed aut fugiat, commodi esse. Consectetur reprehenderit
-              facere necessitatibus!
+            <p class="pt-5">
+              Travelling from our farm to your plate within hours of harvest, we
+              make sure every Green Box is fresh, healthy and eco friendly!
             </p>
-            <p class="py-5">
-              Lorem, ipsum dolor sit amet consectetur adipisicing.
+            <p class="pt-5">
+              Contact us to join our waitlist!
             </p>
           </div>
         </div>
-        <div class="w-full flex flex-col py-20 px-10">
+        <div class="w-full flex flex-col py-20 px-10 border-t border-green-500 lg:border-white">
           <div class="flex flex-col text-green-600">
-            <h2 class="text-5xl font-serif">Green Box</h2>
-            <span class="text-2xl italic mt-3 font-serif">
-              Coming soon to Bengaluru!
-            </span>
+            <h2 class="text-4xl sm:text-5xl font-serif mb-5">Get Growing!</h2>
           </div>
-          <div class="flex flex-col text-2xl">
-            <p class="py-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero illo
-              aperiam sed aut fugiat, commodi esse. Consectetur reprehenderit
-              facere necessitatibus!
+          <div class="flex flex-col text-lg sm:text-xl">
+            <p class="pt-5">
+              Let's make the best of your grow space by custom building
+              hydroponic systems to fit your needs - both for home and farm!
             </p>
-            <p class="py-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero illo
-              aperiam sed aut fugiat, commodi esse. Consectetur reprehenderit
-              facere necessitatibus!
+            <p class="pt-5">
+              Please leave us a message below to get a free consultation!
             </p>
-            <p class="py-5">
-              Lorem, ipsum dolor sit amet consectetur adipisicing.
-            </p>
+            <a href="#contact" class="px-8 py-2 bg-green-500 hover:bg-green-400 text-white self-start rounded mt-10">
+              Contact
+            </a>
           </div>
         </div>
-        <div class="w-full grid justify-center bg-green-300 grid-cols-2 py-20">
+        <div class="w-full grid justify-center bg-green-300 grid-cols-1 sm:grid-cols-2 py-20">
           {fourthBlock.map(item => (
             <div class="flex flex-col justify-center items-center p-10 text-center">
               <i class={`${item.icon} text-5xl mb-5 text-green-600`}></i>
@@ -169,10 +159,12 @@ const SoilLess = () => {
   ]
   return (
     <section class="mx-auto container flex flex-col items-center py-20">
-      <h2 class="text-green-600 text-6xl font-serif">Why grow soilless?</h2>
-      <div class="grid grid-cols-3 mt-20">
+      <h2 class="text-green-600 text-4xl md:text-6xl font-serif">
+        Why grow soilless?
+      </h2>
+      <div class="flex flex-wrap justify-center mt-20">
         {data.map(col => (
-          <div class="flex flex-col items-center p-10 text-center">
+          <div class="flex flex-col items-center p-10 text-center w-full md:w-1/2 lg:w-1/3">
             <i class={`${col.icon} text-9xl mb-20 text-green-600`}></i>
             <h3 class="text-4xl text-green-600 font-serif">{col.heading}</h3>
             <p class="text-lg mt-5">{col.text}</p>
@@ -195,7 +187,7 @@ const Contact = () => {
     },
   ]
   return (
-    <section class="mx-auto container flex py-20 grid grid-cols-2 gap-20">
+    <section id="contact" class="mx-auto container px-10 lg:px-0 flex py-20 grid grid-cols-1 lg:grid-cols-2 gap-20">
       <div>
         <h2 class="text-green-600 text-5xl self-center font-serif">
           Contact Us
@@ -209,7 +201,9 @@ const Contact = () => {
           <div class="py-2 flex mt-5">
             {socialLinks.map(link => (
               <a href={link.link} class="w-12 h-12 mr-2">
-                <i class={`${link.icon} text-4xl text-green-600 hover:text-green-500  transition-all duration-200 ease`}></i>
+                <i
+                  class={`${link.icon} text-4xl text-green-600 hover:text-green-500  transition-all duration-200 ease`}
+                ></i>
               </a>
             ))}
           </div>
@@ -246,8 +240,16 @@ const Contact = () => {
       </div>
       <div>
         <div class="mapouter h-full">
-          <div class="gmap_canvas h-full">
-            <iframe class="w-full h-full" id="gmap_canvas" src="https://maps.google.com/maps?q=darshan%20flour%20mill,%20ams%20layout&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+          <div class="gmap_canvas h-96 lg:h-full">
+            <iframe
+              class="w-full h-full"
+              id="gmap_canvas"
+              src="https://maps.google.com/maps?q=darshan%20flour%20mill,%20ams%20layout&t=&z=17&ie=UTF8&iwloc=&output=embed"
+              frameborder="0"
+              scrolling="no"
+              marginheight="0"
+              marginwidth="0"
+            ></iframe>
           </div>
         </div>
       </div>
