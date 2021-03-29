@@ -1,4 +1,6 @@
 import * as React from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 // import SEO from "../components/seo"
@@ -6,27 +8,35 @@ import HeaderImage from "../images/growcraft-main.webp"
 import HeaderLogo from "../images/growcraft-logo.webp"
 import Hydroponics from "../images/hydroponics.webp"
 
-const IndexPage = () => (
-  <Layout>
-    <MainSection />
-    <BlocksSection />
-    <ImageSection />
-    <SoilLess />
-    <Contact />
-  </Layout>
-)
+const IndexPage = () => {
+  return (
+    <Layout>
+      <MainSection />
+      <BlocksSection />
+      <ImageSection />
+      <SoilLess />
+      <Contact />
+    </Layout>
+  )
+}
 
 const MainSection = () => {
   return (
     <section class="h-screen relative">
-      <img
-        src={HeaderImage}
-        alt=""
+      <StaticImage
+        src="../images/growcraft-main.webp"
+        alt="A dinosaur"
         class="absolute inset-0 h-full w-full object-cover z-0"
+        style={{ height: "100%" }}
       />
       <div class="h-full absolute right-0 bottom-0 z-10 flex flex-col justify-center sm:justify-end">
         <div class="absolute top-0 bottom-0 right-0 w-full h-full bg-green-700 opacity-50"></div>
-        <img src={HeaderLogo} class="m-10 sm:m-32 z-10 object-contain" />
+        {/* <img src={HeaderLogo} class="m-10 sm:m-32 z-10 object-contain" /> */}
+        <StaticImage
+          src="../images/growcraft-logo.webp"
+          alt="Logo"
+          class="m-10 sm:m-32 z-10 object-contain"
+        />
       </div>
     </section>
   )
@@ -93,9 +103,7 @@ const BlocksSection = () => {
               Travelling from our farm to your plate within hours of harvest, we
               make sure every Green Box is fresh, healthy and eco friendly!
             </p>
-            <p class="pt-5">
-              Contact us to join our waitlist!
-            </p>
+            <p class="pt-5">Contact us to join our waitlist!</p>
           </div>
         </div>
         <div class="w-full flex flex-col py-20 px-10 border-t border-green-500 lg:border-white">
@@ -110,7 +118,7 @@ const BlocksSection = () => {
             <p class="pt-5">
               Please leave us a message below to get a free consultation!
             </p>
-            <a href="#contact" class="px-8 py-2 bg-green-500 hover:bg-green-400 text-white self-start rounded mt-10">
+            <a href="#contact" class="mt-10 btn">
               Contact
             </a>
           </div>
@@ -129,9 +137,25 @@ const BlocksSection = () => {
 }
 
 const ImageSection = () => {
+  const data = useStaticQuery(graphql`
+    query Hydroponics {
+      file(relativePath: { eq: "hydroponics.webp" }) {
+        childImageSharp {
+          fluid(maxWidth: 1920) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
   return (
     <section class="h-screen">
-      <img src={Hydroponics} class="w-full h-full object-cover" />
+      <StaticImage
+        src="../images/hydroponics.webp"
+        alt="A dinosaur"
+        class="h-full w-full object-cover"
+        style={{ height: "100%" }}
+      />
     </section>
   )
 }
@@ -187,7 +211,10 @@ const Contact = () => {
     },
   ]
   return (
-    <section id="contact" class="mx-auto container px-10 lg:px-0 flex py-20 grid grid-cols-1 lg:grid-cols-2 gap-20">
+    <section
+      id="contact"
+      class="mx-auto container px-10 lg:px-0 flex py-20 grid grid-cols-1 lg:grid-cols-2 gap-20"
+    >
       <div>
         <h2 class="text-green-600 text-5xl self-center font-serif">
           Contact Us
@@ -236,6 +263,9 @@ const Contact = () => {
             class="border-b border-black py-2"
             rows="3"
           ></textarea>
+          <button type="submit" class="mt-10 btn">
+            Submit
+          </button>
         </form>
       </div>
       <div>

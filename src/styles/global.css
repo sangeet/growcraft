@@ -10,3 +10,11 @@ html {
 body {
   @apply text-gray-700;
 }
+
+.btn {
+  @apply px-8 py-2 bg-green-500 shadow text-white self-start rounded transition-all duration-200;
+}
+
+.btn:hover{
+  @apply bg-green-400 shadow-md;
+}
