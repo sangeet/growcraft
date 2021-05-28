@@ -1,12 +1,8 @@
 import * as React from "react"
-import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 // import SEO from "../components/seo"
-import HeaderImage from "../images/growcraft-main.webp"
-import HeaderLogo from "../images/growcraft-logo.webp"
-import Hydroponics from "../images/hydroponics.webp"
 
 const IndexPage = () => {
   return (
@@ -22,20 +18,22 @@ const IndexPage = () => {
 
 const MainSection = () => {
   return (
-    <section class="h-screen relative">
+    <section className="h-screen relative">
       <StaticImage
         src="../images/growcraft-main.webp"
         alt="A dinosaur"
-        class="absolute inset-0 h-full w-full object-cover z-0"
+        className="absolute inset-0 h-full w-full object-cover z-0"
         style={{ height: "100%" }}
+        placeholder="blurred"
       />
-      <div class="h-full absolute right-0 bottom-0 z-10 flex flex-col justify-center sm:justify-end">
-        <div class="absolute top-0 bottom-0 right-0 w-full h-full bg-green-700 opacity-50"></div>
-        {/* <img src={HeaderLogo} class="m-10 sm:m-32 z-10 object-contain" /> */}
+      <div className="h-full absolute right-0 bottom-0 z-10 flex flex-col justify-center sm:justify-end">
+        <div className="absolute top-0 bottom-0 right-0 w-full h-full bg-green-700 opacity-50"></div>
+        {/* <img src={HeaderLogo} className="m-10 sm:m-32 z-10 object-contain" /> */}
         <StaticImage
           src="../images/growcraft-logo.webp"
           alt="Logo"
-          class="m-10 sm:m-32 z-10 object-contain"
+          className="m-10 sm:m-32 z-10 object-contain"
+          placeholder="blurred"
         />
       </div>
     </section>
@@ -77,57 +75,65 @@ const BlocksSection = () => {
     },
   ]
   return (
-    <section class="py-0 sm:py-5 lg:py-32 bg-green-600">
-      <div class="container grid grid-cols-1 lg:grid-cols-2 mx-auto bg-white">
-        <div class="w-full grid justify-center bg-green-300 grid-cols-1 sm:grid-cols-2 py-20">
-          {firstBlock.map(item => (
-            <div class="flex flex-col justify-center items-center p-10 text-center">
-              <i class={`${item.icon} text-5xl mb-5 text-green-600`}></i>
-              <span class="text-2xl text-green-700">{item.text}</span>
+    <section className="py-0 sm:py-5 lg:py-32 bg-green-600">
+      <div className="container grid grid-cols-1 lg:grid-cols-2 mx-auto bg-white">
+        <div className="w-full grid justify-center bg-green-300 grid-cols-1 sm:grid-cols-2 py-20">
+          {firstBlock.map((item, index) => (
+            <div
+              className="flex flex-col justify-center items-center p-10 text-center"
+              key={index}
+            >
+              <i className={`${item.icon} text-5xl mb-5 text-green-600`}></i>
+              <span className="text-2xl text-green-700">{item.text}</span>
             </div>
           ))}
         </div>
-        <div class="w-full flex flex-col py-20 px-10">
-          <div class="flex flex-col text-green-600">
-            <h2 class="text-4xl sm:text-5xl font-serif">Green Box</h2>
-            <span class="text-xl sm:text-2xl italic mt-3 font-serif">
+        <div className="w-full flex flex-col py-20 px-10">
+          <div className="flex flex-col text-green-600">
+            <h2 className="text-4xl sm:text-5xl font-serif">Green Box</h2>
+            <span className="text-xl sm:text-2xl italic mt-3 font-serif">
               Coming soon to Bengaluru!
             </span>
           </div>
-          <div class="flex flex-col text-lg sm:text-xl">
-            <p class="pt-5">
+          <div className="flex flex-col text-lg sm:text-xl">
+            <p className="pt-5">
               Green Box is an assortment of leafy greens and microgreens grown
               hydroponically, in a hygienic and pesticide-free environment.
             </p>
-            <p class="pt-5">
+            <p className="pt-5">
               Travelling from our farm to your plate within hours of harvest, we
               make sure every Green Box is fresh, healthy and eco friendly!
             </p>
-            <p class="pt-5">Contact us to join our waitlist!</p>
+            <p className="pt-5">Contact us to join our waitlist!</p>
           </div>
         </div>
-        <div class="w-full flex flex-col py-20 px-10 border-t border-green-500 lg:border-white">
-          <div class="flex flex-col text-green-600">
-            <h2 class="text-4xl sm:text-5xl font-serif mb-5">Get Growing!</h2>
+        <div className="w-full flex flex-col py-20 px-10 border-t border-green-500 lg:border-white">
+          <div className="flex flex-col text-green-600">
+            <h2 className="text-4xl sm:text-5xl font-serif mb-5">
+              Get Growing!
+            </h2>
           </div>
-          <div class="flex flex-col text-lg sm:text-xl">
-            <p class="pt-5">
+          <div className="flex flex-col text-lg sm:text-xl">
+            <p className="pt-5">
               Let's make the best of your grow space by custom building
               hydroponic systems to fit your needs - both for home and farm!
             </p>
-            <p class="pt-5">
+            <p className="pt-5">
               Please leave us a message below to get a free consultation!
             </p>
-            <a href="#contact" class="mt-10 btn">
+            <a href="/contact" className="mt-10 btn">
               Contact
             </a>
           </div>
         </div>
-        <div class="w-full grid justify-center bg-green-300 grid-cols-1 sm:grid-cols-2 py-20">
-          {fourthBlock.map(item => (
-            <div class="flex flex-col justify-center items-center p-10 text-center">
-              <i class={`${item.icon} text-5xl mb-5 text-green-600`}></i>
-              <span class="text-2xl text-green-700">{item.text}</span>
+        <div className="w-full grid justify-center bg-green-300 grid-cols-1 sm:grid-cols-2 py-20">
+          {fourthBlock.map((item, index) => (
+            <div
+              className="flex flex-col justify-center items-center p-10 text-center"
+              key={index}
+            >
+              <i className={`${item.icon} text-5xl mb-5 text-green-600`}></i>
+              <span className="text-2xl text-green-700">{item.text}</span>
             </div>
           ))}
         </div>
@@ -137,24 +143,14 @@ const BlocksSection = () => {
 }
 
 const ImageSection = () => {
-  const data = useStaticQuery(graphql`
-    query Hydroponics {
-      file(relativePath: { eq: "hydroponics.webp" }) {
-        childImageSharp {
-          fluid(maxWidth: 1920) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
   return (
-    <section class="h-screen">
+    <section className="h-screen">
       <StaticImage
         src="../images/hydroponics.webp"
         alt="A dinosaur"
-        class="h-full w-full object-cover"
+        className="h-full w-full object-cover"
         style={{ height: "100%" }}
+        placeholder="blurred"
       />
     </section>
   )
@@ -182,16 +178,21 @@ const SoilLess = () => {
     },
   ]
   return (
-    <section class="mx-auto container flex flex-col items-center py-20">
-      <h2 class="text-green-600 text-4xl md:text-6xl font-serif">
+    <section className="mx-auto container flex flex-col items-center py-20">
+      <h2 className="text-green-600 text-4xl md:text-6xl font-serif">
         Why grow soilless?
       </h2>
-      <div class="flex flex-wrap justify-center mt-20">
-        {data.map(col => (
-          <div class="flex flex-col items-center p-10 text-center w-full md:w-1/2 lg:w-1/3">
-            <i class={`${col.icon} text-9xl mb-20 text-green-600`}></i>
-            <h3 class="text-4xl text-green-600 font-serif">{col.heading}</h3>
-            <p class="text-lg mt-5">{col.text}</p>
+      <div className="flex flex-wrap justify-center mt-20">
+        {data.map((col, index) => (
+          <div
+            className="flex flex-col items-center p-10 text-center w-full md:w-1/2 lg:w-1/3"
+            key={index}
+          >
+            <i className={`${col.icon} text-9xl mb-20 text-green-600`}></i>
+            <h3 className="text-4xl text-green-600 font-serif">
+              {col.heading}
+            </h3>
+            <p className="text-lg mt-5">{col.text}</p>
           </div>
         ))}
       </div>
@@ -213,72 +214,72 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      class="mx-auto container px-10 lg:px-0 flex py-20 grid grid-cols-1 lg:grid-cols-2 gap-20"
+      className="mx-auto container px-10 lg:px-0 flex py-20 grid grid-cols-1 lg:grid-cols-2 gap-20"
     >
       <div>
-        <h2 class="text-green-600 text-5xl self-center font-serif">
+        <h2 className="text-green-600 text-5xl self-center font-serif">
           Contact Us
         </h2>
-        <div class="flex flex-col py-10">
-          <span class="py-2">
+        <div className="flex flex-col py-10">
+          <span className="py-2">
             #13, 3rd A Main, AMS Layout, Vidyaranyapura, Bangalore - 560097
           </span>
-          <span class="py-2">info@thegrowcraft.com</span>
-          <span class="py-2">+91 7760167979</span>
-          <div class="py-2 flex mt-5">
-            {socialLinks.map(link => (
-              <a href={link.link} class="w-12 h-12 mr-2">
+          <span className="py-2">info@thegrowcraft.com</span>
+          <span className="py-2">+91 7760167979</span>
+          <div className="py-2 flex mt-5">
+            {socialLinks.map(( link, index ) => (
+              <a href={link.link} className="w-12 h-12 mr-2" key={index}>
                 <i
-                  class={`${link.icon} text-4xl text-green-600 hover:text-green-500  transition-all duration-200 ease`}
+                  className={`${link.icon} text-4xl text-green-600 hover:text-green-500  transition-all duration-200 ease`}
                 ></i>
               </a>
             ))}
           </div>
         </div>
-        <form action="" class="flex flex-col pt-10 text-xl">
-          <h3 class="text-3xl text-green-600 font-serif">
+        <form action="" className="flex flex-col pt-10 text-xl">
+          <h3 className="text-3xl text-green-600 font-serif">
             Leave us a message!
           </h3>
           <input
             type="text"
-            class="border-b border-black placeholder-black my-5 py-2"
+            className="border-b border-black placeholder-black my-5 py-2"
             placeholder="Name"
           />
           <input
             type="text"
-            class="border-b border-black placeholder-black my-5 py-2"
+            className="border-b border-black placeholder-black my-5 py-2"
             placeholder="Email"
           />
           <input
             type="text"
-            class="border-b border-black placeholder-black my-5 py-2"
+            className="border-b border-black placeholder-black my-5 py-2"
             placeholder="Phone"
           />
-          <label for="">Leave us a message..</label>
+          <label htmlFor="message">Leave us a message..</label>
           <textarea
-            name=""
-            id=""
+            name="message"
+            id="message"
             cols="30"
-            rows="10"
-            class="border-b border-black py-2"
+            className="border-b border-black py-2"
             rows="3"
           ></textarea>
-          <button type="submit" class="mt-10 btn">
+          <button type="submit" className="mt-10 btn">
             Submit
           </button>
         </form>
       </div>
       <div>
-        <div class="mapouter h-full">
-          <div class="gmap_canvas h-96 lg:h-full">
+        <div className="mapouter h-full">
+          <div className="gmap_canvas h-96 lg:h-full">
             <iframe
-              class="w-full h-full"
+              className="w-full h-full"
               id="gmap_canvas"
               src="https://maps.google.com/maps?q=darshan%20flour%20mill,%20ams%20layout&t=&z=17&ie=UTF8&iwloc=&output=embed"
-              frameborder="0"
+              frameBorder="0"
               scrolling="no"
-              marginheight="0"
-              marginwidth="0"
+              marginHeight="0"
+              marginWidth="0"
+              title="map-embed"
             ></iframe>
           </div>
         </div>

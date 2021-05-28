@@ -16,39 +16,39 @@ const Header = () => {
   const shadow = isSmall ? "shadow" : "shadow-lg"
   return (
     <header
-      class={`bg-green-500 text-white font-bold ${shadow} fixed w-full z-40 font-sans transition-all duration-300`}
+      className={`bg-green-500 text-white font-bold ${shadow} fixed w-full z-40 font-sans transition-all duration-300`}
     >
       <div
-        class={`mx-auto container px-10 ${padding} flex flex-wrap justify-end text-xl transition-all duration-300`}
+        className={`mx-auto container px-10 ${padding} flex flex-wrap justify-end text-xl transition-all duration-300`}
       >
-        <span class="md:hidden">
+        <span className="md:hidden">
           <i
-            class="fas fa-bars text-2xl"
+            className="fas fa-bars text-2xl"
             onClick={() => setActive(!isActive)}
           ></i>
         </span>
         <ul
-          class={`${
+          className={`${
             isActive ? "flex md:flex" : "hidden md:flex"
           } flex-col md:flex-row items-center w-full md:w-auto`}
         >
-          <li class="px-3 py-2 md:py-0">
-            <a href="#" class="text-white">
+          <li className="px-3 py-2 md:py-0">
+            <a href="/" className="text-white">
               Home
             </a>
           </li>
-          <li class="px-3 py-2 md:py-0">
-            <a href="#" class="text-white">
+          <li className="px-3 py-2 md:py-0">
+            <a href="/" className="text-white">
               About Us
             </a>
           </li>
-          <li class="px-3 py-2 md:py-0">
-            <a href="#" class="text-white">
+          <li className="px-3 py-2 md:py-0">
+            <a href="/" className="text-white">
               Course
             </a>
           </li>
-          <li class="px-3 py-2 md:py-0">
-            <a href="#" class="text-white">
+          <li className="px-3 py-2 md:py-0">
+            <a href="/" className="text-white">
               Store
             </a>
           </li>

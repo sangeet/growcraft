@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header/>
-      <div class="font-sans">
+      <div className="font-sans">
         <main>{children}</main>
       </div>
     </>
