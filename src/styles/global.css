@@ -15,6 +15,18 @@ body {
   @apply px-8 py-2 bg-green-500 shadow text-white self-start rounded transition-all duration-200;
 }
 
-.btn:hover{
+.btn-black {
+  @apply bg-black text-white !important;
+}
+
+.btn-black:hover {
+  @apply bg-green-900 text-green-100 !important;
+}
+
+.btn:hover {
   @apply bg-green-400 shadow-md;
+}
+
+.btn:disabled {
+  @apply bg-green-300;
 }

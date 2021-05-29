@@ -1,4 +1,5 @@
 import * as React from "react"
+import { Link } from 'gatsby';
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
@@ -6,7 +7,7 @@ import Layout from "../components/layout"
 
 const IndexPage = () => {
   return (
-    <Layout>
+    <Layout hasLogo={false}>
       <MainSection />
       <BlocksSection />
       <ImageSection />
@@ -75,7 +76,7 @@ const BlocksSection = () => {
     },
   ]
   return (
-    <section className="py-0 sm:py-5 lg:py-32 bg-green-600">
+    <section className="py-0 sm:py-10 lg:py-32 bg-green-600">
       <div className="container grid grid-cols-1 lg:grid-cols-2 mx-auto bg-white">
         <div className="w-full grid justify-center bg-green-300 grid-cols-1 sm:grid-cols-2 py-20">
           {firstBlock.map((item, index) => (
@@ -121,9 +122,9 @@ const BlocksSection = () => {
             <p className="pt-5">
               Please leave us a message below to get a free consultation!
             </p>
-            <a href="/contact" className="mt-10 btn">
+            <Link to="/contact" className="mt-10 btn">
               Contact
-            </a>
+            </Link>
           </div>
         </div>
         <div className="w-full grid justify-center bg-green-300 grid-cols-1 sm:grid-cols-2 py-20">
@@ -228,11 +229,11 @@ const Contact = () => {
           <span className="py-2">+91 7760167979</span>
           <div className="py-2 flex mt-5">
             {socialLinks.map(( link, index ) => (
-              <a href={link.link} className="w-12 h-12 mr-2" key={index}>
+              <Link to={link.link} className="w-12 h-12 mr-2" key={index}>
                 <i
                   className={`${link.icon} text-4xl text-green-600 hover:text-green-500  transition-all duration-200 ease`}
                 ></i>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

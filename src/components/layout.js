@@ -10,13 +10,13 @@ import * as React from "react"
 import Header from "./header"
 import "./layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, mainClassName="", hasLogo=true }) => {
 
   return (
     <>
-      <Header/>
+      <Header hasLogo={hasLogo}/>
       <div className="font-sans">
-        <main>{children}</main>
+        <main className={mainClassName}>{children}</main>
       </div>
     </>
   )
