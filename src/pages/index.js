@@ -3,15 +3,14 @@ import { Link } from 'gatsby';
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
-// import SEO from "../components/seo"
 
 const IndexPage = () => {
   return (
-    <Layout hasLogo={false}>
+    <Layout hasLogo={false} title="Home">
       <MainSection />
+      <SoilLess />
       <BlocksSection />
       <ImageSection />
-      <SoilLess />
       <Contact />
     </Layout>
   )

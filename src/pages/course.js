@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 
 const Course = () => {
   return (
-    <Layout mainClassName="pt-28">
+    <Layout mainClassName="pt-28" title="Course">
       <IntroSection />
       <NotifyMeSection />
     </Layout>
@@ -33,7 +33,7 @@ const IntroSection = () => {
           where to start. There are no minimum requirements, you can take it
           even if you have never grown a plant before.
         </p>
-        <h2 className="text-2xl font-bold mt-10 mb-2">What is it?</h2>
+        <h2 className="text-2xl font-bold mt-10 mb-2">What do you get from the course?</h2>
         <p>
           After this course, you will be able to start your own hydroponic
           garden or take another step towards growing commercially. You'll also
