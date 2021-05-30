@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Growcraft`,
+    title: `The Grow Craft`,
     description: `Soilless and Sustainable`,
     author: `@sangeet`,
   },
